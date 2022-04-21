@@ -11,15 +11,26 @@ namespace C_Sharp_Lesson_1_Homework
           * -------------------------------------------------
           * |input   | result                               |
           * |--------|--------------------------------------|
-          * |  1     | even                                 |
+          * |  1     | odd                                  |
           * |--------|--------------------------------------|
-          * |  2     | odd                                  |
+          * |  2     | even                                 |
           * |--------|--------------------------------------|
           * | -1     | the value should be greater then zero|
           * -------------------------------------------------
           * 
           */
-            //your code here
+            if (number <= 0)
+            {
+                Console.WriteLine("the value should be greater then zero");
+            }
+            else if (number % 2 == 0)
+            {
+                Console.WriteLine("even");
+            }
+            else
+            {
+                Console.WriteLine("odd");
+            }
         }
         public void NumberDivideToFour(int number)
         {
@@ -34,7 +45,7 @@ namespace C_Sharp_Lesson_1_Homework
         * |   2    | The number doesn't divide to 4  |
         * --------------------------------------------
         */
-            //your code here
+            Console.WriteLine(number % 4 == 0 ? "The number divide to 4" : "The number doesn't divide to 4");
         }
         public void DayOfWeek(string day)
         {
@@ -54,10 +65,33 @@ namespace C_Sharp_Lesson_1_Homework
              * |default value |Wrong value! Please give a day of a week|
              * ---------------------------------------------------------
              */
-            
-            switch (day)
+
+            switch (day.ToLower())
             {
-                //your code here
+                case "monday":
+                    Console.WriteLine(1);
+                    break;
+                case "tuesday":
+                    Console.WriteLine(2);
+                    break;
+                case "wednesday":
+                    Console.WriteLine(3);
+                    break;
+                case "thursday":
+                    Console.WriteLine(4);
+                    break;
+                case "friday":
+                    Console.WriteLine(5);
+                    break;
+                case "saturday":
+                    Console.WriteLine(6);
+                    break;
+                case "sunday":
+                    Console.WriteLine(7);
+                    break;
+                default:
+                    Console.WriteLine("Wrong value! Please give a day of a week");
+                    break;
             }
         }
         public void CheckLetterIfVowel(char character)
@@ -73,26 +107,33 @@ namespace C_Sharp_Lesson_1_Homework
              * |  b  | b is a consonant  |
              * ---------------------------
              */
-            //your code here
-
-        }
-        public static void Main(String[] args)
-        {
-         Homework homework = new Homework();
-
-            homework.CheckIfNumberIsEvenOrOdd(-11);
-            homework.CheckIfNumberIsEvenOrOdd(11);
-            homework.CheckIfNumberIsEvenOrOdd(8);
-            //---------------------------------------
-            homework.NumberDivideToFour(10);
-            homework.NumberDivideToFour(16);
-            //---------------------------------------
-            homework.DayOfWeek("Monday");
-            homework.DayOfWeek("Sunday");
-            homework.DayOfWeek("some day");
-            //---------------------------------------
-            homework.CheckLetterIfVowel('p');
-            homework.CheckLetterIfVowel('i');
+            character = character.ToString().ToLower().FirstOrDefault();
+            switch (character)
+            {
+                case 'a' or 'e' or 'i' or 'o' or 'u':
+                    Console.WriteLine($"{character} is a vowel");
+                    break;
+                case 'b' or 'c' or 'd' or 'f' or 'g' or 'h' or 'j' or 'k' or 'l' or 'm'
+                      or 'n' or 'p' or 'q' or 'r' or 's' or 't' or 'v' or 'w' or 'x' or 'y' or 'z':
+                    Console.WriteLine($"{character} is a consonant");
+                    break;
+                default:
+                    Console.WriteLine("is not a letter");
+                    break;
+            }
+            if (character is 'a' or 'e' or 'i' or 'o' or 'u')
+            {
+                Console.WriteLine($"{character} is a vowel");
+            }
+            else if (character is 'b' or 'c' or 'd' or 'f' or 'g' or 'h' or 'j' or 'k' or 'l' or 'm'
+                       or 'n' or 'p' or 'q' or 'r' or 's' or 't' or 'v' or 'w' or 'x' or 'y' or 'z')
+            {
+                Console.WriteLine($"{character} is a consonant");
+            }
+            else
+            {
+                Console.WriteLine("is not a letter");
+            }
 
         }
     }
