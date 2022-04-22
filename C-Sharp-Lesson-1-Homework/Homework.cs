@@ -31,6 +31,19 @@ namespace C_Sharp_Lesson_1_Homework
             {
                 Console.WriteLine("odd");
             }
+            //Method 2
+            if (number <= 0)
+            {
+                Console.WriteLine("the value should be greater then zero");
+            }
+            else
+            {
+                Console.WriteLine(number <= 0 ? "the value should be greater then zero" : number % 2 == 0 ? "even" : "odd");
+
+            }
+
+
+
         }
         public void NumberDivideToFour(int number)
         {
@@ -107,7 +120,7 @@ namespace C_Sharp_Lesson_1_Homework
              * |  b  | b is a consonant  |
              * ---------------------------
              */
-            character = character.ToString().ToLower().FirstOrDefault();
+            character = char.ToLower(character);
             switch (character)
             {
                 case 'a' or 'e' or 'i' or 'o' or 'u':
@@ -115,6 +128,19 @@ namespace C_Sharp_Lesson_1_Homework
                     break;
                 case 'b' or 'c' or 'd' or 'f' or 'g' or 'h' or 'j' or 'k' or 'l' or 'm'
                       or 'n' or 'p' or 'q' or 'r' or 's' or 't' or 'v' or 'w' or 'x' or 'y' or 'z':
+                    Console.WriteLine($"{character} is a consonant");
+                    break;
+                default:
+                    Console.WriteLine("is not a letter");
+                    break;
+            }
+            string vowels = "aeiou";
+            switch (true)
+            {
+                case var _ when char.IsLetter(character) && vowels.Contains(char.ToLower(character)):
+                    Console.WriteLine($"{character} is a vowel");
+                    break;
+                case var _ when char.IsLetter(character):
                     Console.WriteLine($"{character} is a consonant");
                     break;
                 default:
@@ -135,6 +161,10 @@ namespace C_Sharp_Lesson_1_Homework
                 Console.WriteLine("is not a letter");
             }
 
+            for (int i = 0; i <= 10; i++)
+            {
+                Console.WriteLine(i);
+            }
         }
     }
 }
